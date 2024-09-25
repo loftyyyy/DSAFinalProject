@@ -10,7 +10,8 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <Button fx:id="importButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Import File" />
+   <Button fx:id="importButton" mnemonicParsing="false" onAction="#onImportButton" prefHeight="25.0" prefWidth="147.0" text="Import File" />
+   <Button mnemonicParsing="false" onAction="#simulate" text="Simulate" />
    <AnchorPane fx:id="pane" prefHeight="597.0" prefWidth="1034.0" />
 
     <Label fx:id="welcomeText" />
