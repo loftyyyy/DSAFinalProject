@@ -103,4 +103,6 @@ public class ArrowRepresentation {
         // Add everything to the pane
         pane.getChildren().addAll(nextArrow, nextArrowHead, prevArrow, prevArrowHead);
     }
+
+
 }
