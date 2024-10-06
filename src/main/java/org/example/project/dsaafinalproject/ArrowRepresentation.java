@@ -10,9 +10,95 @@ public class ArrowRepresentation {
     private static final double ARROW_VERTICAL_OFFSET = 10; // Vertical offset to separate the arrows above and below the middle
     private static final double LABEL_OFFSET = 10; // Offset for the label
 
+    private static final double ARROW_LENGTH = 50;
 
 
-    public Line createDirectionalArrow(NodeRepresentation currentNode, String labelText, boolean isLeft) {
+    public void createHeadArrow(Pane pane, NodeRepresentation firstNode) {
+        double startX, startY, endX, endY, width, middleTopX, middleTopY,x,y;
+        int size = 10;
+
+        Label headLabel = new Label("Head");
+
+        // Get the starting X and Y coordinates of the node (top-left corner)
+        startX = firstNode.getLayoutX();  // Top-left corner X
+        startY = firstNode.getLayoutY();  // Top-left corner Y
+        width = firstNode.getWidth();     // Width of the node
+
+        // Calculate the middle-top X and Y coordinates of the node
+        middleTopX = startX + (width / 2) + 60;  // Start at the center of the node's top side
+        System.out.println(middleTopX);
+        middleTopY = startY;                // Y stays the same at the top edge of the node
+
+        // The end position of the arrow (adjust for how far you want the arrow to extend)
+        endX = middleTopX;                  // The arrow moves vertically, so X stays the same
+        endY = middleTopY - 50;             // Move upwards by 20 units (for a downward-pointing arrow, add instead of subtract)
+
+        // Create the line representing the arrow
+        Line arrow = new Line(middleTopX, middleTopY, endX, endY);
+
+        // Optional: Set arrow stroke and other styling
+        arrow.setStroke(Color.BLACK);
+        arrow.setStrokeWidth(2);
+        x = middleTopX;
+        y = middleTopY;
+
+        Polygon arrowHead = new Polygon();
+        arrowHead.getPoints().addAll(x, y, x - size / 2, y - size, x + size / 2, y - size);
+        arrowHead.setFill(Color.BLACK);
+
+
+        headLabel.setLayoutX(endX + 5);
+        headLabel.setLayoutY(endY - 3);
+
+        // Add the arrow to the pane
+        pane.getChildren().addAll(arrow, arrowHead, headLabel);
+    }
+    public void createNullArrow(Pane pane, NodeRepresentation currentNode, NodeRepresentation nextNode, boolean isLeft) {
+        double startX, startY, endX, endY;
+        Label nullLabel = new Label("Null");
+        Polygon arrowHead;
+
+        // Determine start and end positions based on whether it's the left or right arrow
+        if (isLeft) {
+            // Start at the middle-left side of the next node
+            startX = nextNode.getLayoutX();
+            startY = nextNode.getLayoutY() + 66 / 2; // Slight downward shift
+
+            // End just below the middle-right side of the previous node
+            endX = startX - 90;
+            endY = startY;
+
+            arrowHead = createArrowHead(endX, endY, false); // Arrow pointing left
+
+        } else {
+// Start just above the middle-right side of the current node
+            startX = currentNode.getLayoutX() + 127;
+            System.out.println(currentNode.getLayoutX());
+            System.out.println(nextNode.getLayoutX());
+            startY = currentNode.getLayoutY() + 66 / 2; // Slight upward shift
+
+            endX = startX + 90;
+            endY = startY;
+            arrowHead = createArrowHead(endX, endY, true); // Arrow pointing right
+        }
+
+        // Create the arrow line
+        Line arrow = new Line(startX, startY, endX, endY);
+        arrow.setStroke(Color.BLACK);
+        arrow.setStrokeWidth(2);
+
+        // Calculate the midpoint of the arrow for label placement
+        double midX = (startX + endX) / 2;
+        double midY = (startY + endY) / 2;
+
+        // Position the label at the midpoint, slightly above the arrow
+        nullLabel.setLayoutX(midX - nullLabel.getWidth() / 2); // Center horizontally
+        nullLabel.setLayoutY(midY - 20); // Place slightly above the arrow
+
+        // Add the arrow, arrowhead, and label to the pane
+        pane.getChildren().addAll(arrow, arrowHead, nullLabel);
+    }
+public Line createDirectionalArrow(NodeRepresentation currentNode, String labelText, boolean isLeft) {
         double startX, startY;
         double labelX, labelY;
 
@@ -23,7 +109,7 @@ public class ArrowRepresentation {
             startX = currentNode.getLayoutX() + currentNode.getWidth(); // Start from the right side of the current node
         }
 
-        startY = currentNode.getLayoutY() + 66 / 2 - ARROW_VERTICAL_OFFSET; // Center of the current node with offset
+        startY = currentNode.getLayoutY() + 66 / 2; // Center of the current node with offset
 
         // Calculate the label position (you can adjust the positioning as needed)
         labelX = startX + (isLeft ? -LABEL_OFFSET : LABEL_OFFSET); // Position the label offset from the arrow start
