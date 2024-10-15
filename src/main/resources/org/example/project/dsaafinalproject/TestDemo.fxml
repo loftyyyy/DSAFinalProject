@@ -15,5 +15,6 @@
       <Button fx:id="importButton" layoutX="483.0" layoutY="59.0" mnemonicParsing="false" onAction="#onImportButton" prefHeight="25.0" prefWidth="147.0" text="Import File" />
       <Button layoutX="382.0" layoutY="59.0" mnemonicParsing="false" onAction="#simulate" text="Simulate" />
       <Label fx:id="welcomeText" layoutX="88.0" layoutY="121.0" />
+      <Button layoutX="662.0" layoutY="59.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
    </children>
 </AnchorPane>

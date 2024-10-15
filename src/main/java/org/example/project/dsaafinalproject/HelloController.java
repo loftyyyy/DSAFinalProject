@@ -64,4 +64,8 @@ public class HelloController {
 
     }
 
+    public void clear(){
+        simulation.clearSimulation(pane);
+    }
+
 }

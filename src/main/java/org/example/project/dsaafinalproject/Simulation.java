@@ -18,6 +18,8 @@ public class Simulation {
     private List<NodeRepresentation> nodeList = new ArrayList<>();  // List to preserve insertion order
     private File selectedFile;
 
+    Timeline timeline = new Timeline();
+
     public Simulation(File selectedFile) {
         this.selectedFile = selectedFile;
         if (selectedFile != null) {
@@ -49,7 +51,6 @@ public class Simulation {
     }
 
     public void startSimulation(AnchorPane pane) {
-        Timeline timeline = new Timeline();
         ArrowRepresentation arrowRep = new ArrowRepresentation();
 
         int delayBetweenNodes = 1000;
@@ -95,5 +96,15 @@ public class Simulation {
 
         // Start the timeline animation
         timeline.play();
+    }
+
+    public void clearSimulation(AnchorPane pane) {
+        if(timeline != null){
+            timeline.stop();
+        }
+        nodes.clear();
+        nodeList.clear();
+
+        pane.getChildren().clear();
     }
 }
