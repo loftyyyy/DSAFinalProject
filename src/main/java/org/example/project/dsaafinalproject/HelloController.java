@@ -20,6 +20,9 @@ public class HelloController {
     @FXML
     private AnchorPane pane;
 
+    @FXML
+    private AnchorPane reversedPane;
+
     private NodeRepresentation nodeRepresentation;
     private ArrowRepresentation arrowRepresentation;
     private Simulation simulation ;
@@ -65,7 +68,11 @@ public class HelloController {
     }
 
     public void clear(){
-        simulation.clearSimulation(pane);
+        simulation.clearSimulation(pane,reversedPane, welcomeText);
+    }
+
+    public void reverse(){
+        simulation.reverseSimulation(reversedPane);
     }
 
 }

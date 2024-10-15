@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="765.0" prefWidth="1148.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.project.dsaafinalproject.HelloController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="74.0" layoutY="359.0" pannable="true" prefHeight="200.0" prefWidth="1001.0" vbarPolicy="NEVER">
+      <ScrollPane fx:id="original" hbarPolicy="NEVER" layoutX="74.0" layoutY="291.0" pannable="true" prefHeight="200.0" prefWidth="1001.0" vbarPolicy="NEVER">
          <content>
             <AnchorPane fx:id="pane" prefHeight="197.0" prefWidth="1001.0" />
          </content>
@@ -16,5 +16,12 @@
       <Button layoutX="382.0" layoutY="59.0" mnemonicParsing="false" onAction="#simulate" text="Simulate" />
       <Label fx:id="welcomeText" layoutX="88.0" layoutY="121.0" />
       <Button layoutX="662.0" layoutY="59.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
+      <Button layoutX="541.0" layoutY="148.0" mnemonicParsing="false" onAction="#reverse" text="Reverse" />
+      <ScrollPane fx:id="reversed" hbarPolicy="NEVER" layoutX="74.0" layoutY="542.0" pannable="true" prefHeight="200.0" prefWidth="1001.0" vbarPolicy="NEVER">
+         <content>
+            <AnchorPane fx:id="reversedPane" prefHeight="197.0" prefWidth="1001.0" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="561.0" layoutY="510.0" text="Reversed:" />
    </children>
 </AnchorPane>
