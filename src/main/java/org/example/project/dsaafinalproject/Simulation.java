@@ -2,12 +2,9 @@ package org.example.project.dsaafinalproject;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import org.example.project.dsaafinalproject.ArrowRepresentation;
-import org.example.project.dsaafinalproject.NodeRepresentation;
 
 import java.io.*;
 import java.util.*;
@@ -105,8 +102,9 @@ public class Simulation {
         timeline.play();
     }
 
-    public void clearSimulation(AnchorPane pane, AnchorPane reversedPane) {
+    public void clearSimulation(AnchorPane pane, AnchorPane reversedPane, Label welcomeText) {
         continueSimulation = false;
+        welcomeText.setText("");
         if(timeline != null){
             timeline.stop();
         }
@@ -117,8 +115,7 @@ public class Simulation {
         reversedPane.getChildren().clear();
     }
 
-public void reverseSimulation(AnchorPane reversedPane, Label welcomeText) {
-        welcomeText.setText("");
+public void reverseSimulation(AnchorPane reversedPane) {
         nodes.clear();
         nodeList.clear();
 
