@@ -103,6 +103,7 @@ public class Simulation {
     }
 
     public void clearSimulation(AnchorPane pane, AnchorPane reversedPane, Label welcomeText) {
+        selectedFile = null;
         continueSimulation = false;
         welcomeText.setText("");
         if(timeline != null){
