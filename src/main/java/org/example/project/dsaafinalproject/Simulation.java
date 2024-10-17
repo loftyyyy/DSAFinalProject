@@ -69,7 +69,6 @@ public class Simulation {
 
                                 } else {
                                     // If this is the first node, add a "Null" arrow on the left
-                                    System.out.println("YEah");
 //                            pane.getChildren().add(arrowRep.createDirectionalArrow(currentNode, "Null", true));
                                     arrowRep.createHeadArrow(pane, currentNode);
                                     arrowRep.createNullArrow(pane, previousNode[0], currentNode,true);
@@ -92,7 +91,6 @@ public class Simulation {
         // After all nodes have been added, add a "Null" arrow to the last node on the right
         timeline.setOnFinished(e -> {
             if (!nodeList.isEmpty()) {
-                System.out.println("Yeah last na ni");
                 NodeRepresentation lastNode = nodeList.get(nodeList.size() - 1);
                 arrowRep.createNullArrow(pane, previousNode[0], lastNode,false);
             }
