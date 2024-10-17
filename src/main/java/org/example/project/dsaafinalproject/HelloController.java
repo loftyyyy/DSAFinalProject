@@ -23,11 +23,22 @@ public class HelloController {
     @FXML
     private AnchorPane reversedPane;
 
-    private Simulation simulation;
+    @FXML
+    private Label simulationRunningTime;
+    @FXML
+    private Label reverseSimulationRunningTime;
+
+    @FXML
+    private Label numberOfElements;
+
+    private NodeRepresentation nodeRepresentation;
+    private ArrowRepresentation arrowRepresentation;
+    private Simulation simulation ;
 
     @FXML
     public void initialize() {
-        // Initialize if needed
+
+
     }
 
     public void onImportButton() {
@@ -48,7 +59,7 @@ public class HelloController {
         Stage stage = (Stage) pane.getScene().getWindow(); // Get the current window
         File selectedFile = fileChooser.showOpenDialog(stage);
 
-        simulation = new Simulation(selectedFile); // Initialize the simulation with the selected file
+        simulation = new Simulation(selectedFile, welcomeText, numberOfElements, simulationRunningTime, reverseSimulationRunningTime); // Initialize the simulation with the selected file
 
         if (selectedFile != null) {
             // Display the selected file path in the welcomeText label
@@ -57,17 +68,18 @@ public class HelloController {
             welcomeText.setText("No file selected.");
         }
     }
-
-    public void simulate() {
+    public void simulate(){
         simulation.startSimulation(pane);
+
     }
 
-    public void clear() {
-        simulation.clearSimulation(pane, reversedPane, welcomeText);
+    public void clear(){
+        simulation.clearSimulation(pane,reversedPane, welcomeText, numberOfElements);
     }
 
     @FXML
     public void reverse() {
-        simulation.reverseSimulation(reversedPane);  // Pass only the AnchorPane
+        simulation.reverseSimulation(reversedPane);  // Pass both AnchorPane and Label
     }
+
 }
