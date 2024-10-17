@@ -23,14 +23,11 @@ public class HelloController {
     @FXML
     private AnchorPane reversedPane;
 
-    private NodeRepresentation nodeRepresentation;
-    private ArrowRepresentation arrowRepresentation;
-    private Simulation simulation ;
+    private Simulation simulation;
 
     @FXML
     public void initialize() {
-
-
+        // Initialize if needed
     }
 
     public void onImportButton() {
@@ -60,20 +57,17 @@ public class HelloController {
             welcomeText.setText("No file selected.");
         }
     }
-    public void simulate(){
+
+    public void simulate() {
         simulation.startSimulation(pane);
-
-
-
     }
 
-    public void clear(){
-        simulation.clearSimulation(pane,reversedPane, welcomeText);
+    public void clear() {
+        simulation.clearSimulation(pane, reversedPane, welcomeText);
     }
 
     @FXML
     public void reverse() {
-        simulation.reverseSimulation(reversedPane, welcomeText);  // Pass both AnchorPane and Label
+        simulation.reverseSimulation(reversedPane);  // Pass only the AnchorPane
     }
-
 }

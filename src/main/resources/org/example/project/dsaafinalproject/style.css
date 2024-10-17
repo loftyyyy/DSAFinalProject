@@ -9,11 +9,11 @@
     -fx-transition: translate 0.1s ease; /* Added transition for smooth movement */
 }
 
-.continue-button:hover {
+.import-button:hover {
     -fx-background-color: #86fb82;
 }
 
-.continue-button:pressed {
+.import-button:pressed {
     -fx-background-color: #93A3AD;
     -fx-text-fill: #52656D;
     -fx-effect: none;
