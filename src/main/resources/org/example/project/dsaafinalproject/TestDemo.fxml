@@ -26,7 +26,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Pane layoutX="329.0" layoutY="117.0" prefHeight="44.0" prefWidth="530.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+      <Pane layoutX="329.0" layoutY="103.0" prefHeight="44.0" prefWidth="530.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
             <Label fx:id="welcomeText" prefHeight="44.0" prefWidth="530.0" style="-fx-background-color: EFF1EC; -fx-background-radius: 20; -fx-border-radius: 20;">
                <font>
@@ -51,5 +51,14 @@
                </padding></AnchorPane>
          </content>
       </ScrollPane>
+      <Pane layoutX="329.0" layoutY="154.0" prefHeight="44.0" prefWidth="530.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Label fx:id="welcomeText1" prefHeight="44.0" prefWidth="530.0" style="-fx-background-color: EFF1EC; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
