@@ -71,8 +71,9 @@ public class HelloController {
         simulation.clearSimulation(pane,reversedPane, welcomeText);
     }
 
-    public void reverse(){
-        simulation.reverseSimulation(reversedPane);
+    @FXML
+    public void reverse() {
+        simulation.reverseSimulation(reversedPane, welcomeText);  // Pass both AnchorPane and Label
     }
 
 }

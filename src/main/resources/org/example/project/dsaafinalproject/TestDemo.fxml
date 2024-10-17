@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="765.0" prefWidth="1148.0" style="-fx-background-color: DEE9CB;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.project.dsaafinalproject.HelloController">
+<AnchorPane prefHeight="765.0" prefWidth="1148.0" style="-fx-background-color: DEE9CB;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.project.dsaafinalproject.HelloController">
    <children>
       <ScrollPane fx:id="original" hbarPolicy="NEVER" layoutX="74.0" layoutY="260.0" pannable="true" prefHeight="200.0" prefWidth="1001.0" vbarPolicy="NEVER">
          <content>
@@ -26,7 +26,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Pane layoutX="329.0" layoutY="117.0" prefHeight="44.0" prefWidth="530.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+      <Pane layoutX="329.0" layoutY="103.0" prefHeight="44.0" prefWidth="530.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
             <Label fx:id="welcomeText" prefHeight="44.0" prefWidth="530.0" style="-fx-background-color: EFF1EC; -fx-background-radius: 20; -fx-border-radius: 20;">
                <font>

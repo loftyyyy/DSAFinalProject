@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 
-public class ArrowRepresentation {
+public class    ArrowRepresentation {
     private static final double ARROW_VERTICAL_OFFSET = 10; // Vertical offset to separate the arrows above and below the middle
     private static final double LABEL_OFFSET = 10; // Offset for the label
 
