@@ -37,18 +37,19 @@ public class NodeRepresentation extends Pane {
 //        nextSection.setArcHeight(42);
 
         // Create labels for "Previous", "Element", and "Next"
+// Create labels for "Previous", "Element", and "Next"
         Label previousLabel = new Label("Prev");
         previousLabel.setRotate(270); // Rotate vertically
         previousLabel.setPrefHeight(66);
         previousLabel.setPrefWidth(42);
         previousLabel.setTextAlignment(TextAlignment.CENTER);
-        previousLabel.setStyle("-fx-border-color: transparent; -fx-alignment: center; ");
+        previousLabel.setStyle("-fx-border-color: transparent; -fx-alignment: center; -fx-font-weight: bold;"); // Make text bold
 
-        // Element label that will hold the node data (middle)
+// Element label that will hold the node data (middle)
         elementLabel = new Label(elementData);
         elementLabel.setPrefWidth(43);
         elementLabel.setPrefHeight(66);
-        elementLabel.setStyle("-fx-border-color: transparent; -fx-alignment: center;");
+        elementLabel.setStyle("-fx-border-color: transparent; -fx-alignment: center; -fx-font-weight: bold;"); // Make text bold
         elementLabel.setTextAlignment(TextAlignment.CENTER);
 
         Label nextLabel = new Label("Next");
@@ -56,7 +57,8 @@ public class NodeRepresentation extends Pane {
         nextLabel.setPrefHeight(66);
         nextLabel.setPrefWidth(42);
         nextLabel.setTextAlignment(TextAlignment.CENTER);
-        nextLabel.setStyle("-fx-border-color: transparent; -fx-alignment: center;");
+        nextLabel.setStyle("-fx-border-color: transparent; -fx-alignment: center; -fx-font-weight: bold;"); // Make text bold
+
 
         // Draw vertical lines to separate sections
         Line line1 = new Line(42, 0, 42, 66); // Divider after "Previous"

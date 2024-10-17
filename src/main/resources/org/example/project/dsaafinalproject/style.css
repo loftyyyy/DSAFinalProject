@@ -1,0 +1,65 @@
+.import-button {
+    -fx-background-radius: 21px;
+    -fx-background-color: #53fa00;
+    -fx-text-fill: white;
+    -fx-font-family: 'Inter Black';
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(gaussian, #00a71c, 0, 0, 0, 4);
+    -fx-padding: 10 20;
+    -fx-transition: translate 0.1s ease; /* Added transition for smooth movement */
+}
+
+.continue-button:hover {
+    -fx-background-color: #86fb82;
+}
+
+.continue-button:pressed {
+    -fx-background-color: #93A3AD;
+    -fx-text-fill: #52656D;
+    -fx-effect: none;
+    -fx-translate-y: 4px; /* Move down when pressed */
+}
+
+.clear-button {
+    -fx-background-radius: 21px;
+    -fx-background-color: #fa0000;
+    -fx-text-fill: white;
+    -fx-font-family: 'Inter Black';
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(gaussian, #a70000, 0, 0, 0, 4);
+    -fx-padding: 10 20;
+    -fx-transition: translate 0.1s ease; /* Added transition for smooth movement */
+}
+
+.clear-button:hover {
+    -fx-background-color: #fb8682;
+}
+
+.clear-button:pressed {
+    -fx-background-color: #93A3AD;
+    -fx-text-fill: #52656D;
+    -fx-effect: none;
+    -fx-translate-y: 4px; /* Move down when pressed */
+}
+
+.sim-button {
+    -fx-background-radius: 21px;
+    -fx-background-color: #004ffa;
+    -fx-text-fill: white;
+    -fx-font-family: 'Inter Black';
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(gaussian, #0021a7, 0, 0, 0, 4);
+    -fx-padding: 10 20;
+    -fx-transition: translate 0.1s ease; /* Added transition for smooth movement */
+}
+
+.sim-button:hover {
+    -fx-background-color: #82a4fb;
+}
+
+.sim-button:pressed {
+    -fx-background-color: #93A3AD;
+    -fx-text-fill: #52656D;
+    -fx-effect: none;
+    -fx-translate-y: 4px; /* Move down when pressed */
+}
