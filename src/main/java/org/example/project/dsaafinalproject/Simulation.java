@@ -66,16 +66,14 @@ public class Simulation {
 
         if (nodeList.isEmpty()) {
             this.remark = "No action required (Empty List)";
-            welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: red;");
         } else if (nodeList.size() == 1) {
             this.remark = "Single node remains unchanged";
-            welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: yellow;");
         } else {
             this.remark = "Reversal successful";
-            welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: green;");
         }
 
         if (nodeList.size() == 1 || nodeList.isEmpty()) {
+            welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: red;");
             welcomeText1.setText(this.remark);
             welcomeText1.setAlignment(Pos.CENTER);
             welcomeText1.setMaxWidth(Double.MAX_VALUE);
@@ -168,13 +166,18 @@ public class Simulation {
 
                 if (valuesList.isEmpty()) {
                     this.remark = "No action required (Empty List)";
-                    welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: red;");
                 } else if (valuesList.size() == 1) {
                     this.remark = "Single node remains unchanged";
-                    welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: yellow;");
                 } else {
                     this.remark = "Reversal successful";
-                    welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: green;");
+                }
+
+                if (valuesList.size() == 1 || valuesList.isEmpty()) {
+                    welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: red;");
+                    welcomeText1.setText(this.remark);
+                    welcomeText1.setAlignment(Pos.CENTER);
+                    welcomeText1.setMaxWidth(Double.MAX_VALUE);
+                    return;
                 }
 
                 Collections.reverse(valuesList);
@@ -194,13 +197,6 @@ public class Simulation {
         }
 
 
-        if(valuesList.size() == 1 || valuesList.isEmpty()){
-            welcomeText1.setText(this.remark);
-            welcomeText1.setAlignment(Pos.CENTER);
-            welcomeText1.setMaxWidth(Double.MAX_VALUE);
-            return;
-
-        }
         startSimulation(reversedPane);
 
         // Measure the time after the simulation completes
@@ -214,6 +210,10 @@ public class Simulation {
             }
             long endTime = System.currentTimeMillis();
             reverseSimulationRunningTime.setText("Reverse Simulation Time: " + (endTime - startTime) + " ms");
+            welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: green;");
+            welcomeText1.setText(this.remark);
+            welcomeText1.setAlignment(Pos.CENTER);
+            welcomeText1.setMaxWidth(Double.MAX_VALUE);
 
         });
 
