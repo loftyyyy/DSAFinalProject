@@ -61,6 +61,8 @@ public class Simulation {
 
 
     public void startSimulation(AnchorPane pane) {
+        // Clear timeline keyframes before adding new ones
+        timeline.getKeyFrames().clear();
 
         if (nodeList.isEmpty()) {
             this.remark = "No action required (Empty List)";
@@ -73,11 +75,10 @@ public class Simulation {
             welcomeText1.setStyle("-fx-font-weight: bold; -fx-text-fill: green;");
         }
 
-        if(nodeList.size() == 1 || nodeList.isEmpty()){
+        if (nodeList.size() == 1 || nodeList.isEmpty()) {
             welcomeText1.setText(this.remark);
             welcomeText1.setAlignment(Pos.CENTER);
             welcomeText1.setMaxWidth(Double.MAX_VALUE);
-
             return;
         }
 
@@ -93,7 +94,10 @@ public class Simulation {
                 KeyFrame keyFrame = new KeyFrame(
                         Duration.millis(index * delayBetweenNodes),
                         e -> {
-                            pane.getChildren().add(currentNode);
+                            // Check if the node is already added to prevent duplicates
+                            if (!pane.getChildren().contains(currentNode)) {
+                                pane.getChildren().add(currentNode);
+                            }
 
                             if (previousNode[0] != null) {
                                 arrowRep.addArrowsToPane(pane, previousNode[0], currentNode);
