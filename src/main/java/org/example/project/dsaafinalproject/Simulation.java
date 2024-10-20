@@ -120,7 +120,8 @@ public class Simulation {
                 arrowRep.createNullArrow(pane, previousNode[0], lastNode, false);
             }
             long endTime = System.currentTimeMillis();
-            simulationRunningTime.setText("Simulation Time: " + (endTime - startTime) + "ms");
+            //Commented out kay not needed. Uncomment if needed.
+//            simulationRunningTime.setText("Simulation Time: " + (endTime - startTime) + "ms");
         });
 
         timeline.play();

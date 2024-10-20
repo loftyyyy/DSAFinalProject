@@ -7,7 +7,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class HelloController {
 
@@ -62,15 +65,26 @@ public class HelloController {
         simulation = new Simulation(selectedFile, welcomeText, numberOfElements, simulationRunningTime, reverseSimulationRunningTime); // Initialize the simulation with the selected file
 
         if (selectedFile != null) {
-            // Display the selected file path in the welcomeText label
-            welcomeText.setText("Selected File: " + selectedFile.getAbsolutePath());
+            StringBuilder result = new StringBuilder(); // Use StringBuilder to efficiently build the string
+
+            try (BufferedReader br = new BufferedReader(new FileReader(selectedFile))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                        result.append(line).append(" "); // Append each value followed by a space
+                }
+            } catch (IOException e) {
+                e.printStackTrace(); // Handle exceptions
+            }
+
+            String finalResult = result.toString().trim();
+            welcomeText.setText("Elements: " + finalResult);
+//            welcomeText.setText("Selected File: " + selectedFile.getName());
         } else {
             welcomeText.setText("No file selected.");
         }
     }
     public void simulate(){
         simulation.startSimulation(pane);
-
     }
 
     public void clear(){
